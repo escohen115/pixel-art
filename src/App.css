@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+body{
+  background:black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root{
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.div1 { grid-area: 2 / 2 / 6 / 5; border: 3px solid grey;
+    padding: 50px;
+  margin: 10px;    }
+.div2 { grid-area: 6 / 2 / 7 / 5; border: 3px solid grey;
+    padding: 50px;
+  margin: 10px;    }
+.div3 { grid-area: 1 / 1 / 2 / 6; border: 3px solid grey;
+    padding: 50px;
+  margin: 10px;    }
+.div4 { grid-area: 2 / 5 / 7 / 6; border: 3px solid grey;
+    padding: 50px;
+  margin: 10px;    }
+.div5 { grid-area: 2 / 1 / 7 / 2; border: 3px solid grey;
+    padding: 50px;
+  margin: 10px;    } 
+
+  .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . .";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pixel{
+  /* border: 1px solid grey; */
+  margin: 1px;
+  padding: 10px; 
 }
