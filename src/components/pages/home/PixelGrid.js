@@ -2,7 +2,9 @@ import Pixel from './Pixel'
 import React, { useState } from "react"
 
 
-export default function PixelGrid(){
+export default function PixelGrid({ colorState }){
+
+    const [mouseDown, setMouseDown] = useState(false)
 
     let defaultGrid = []
 
@@ -11,13 +13,16 @@ export default function PixelGrid(){
     }
 
     const [colorGrid, setColorGrid] = useState(defaultGrid)
-
+    
     const pixels = colorGrid.map(color => {
-        return <Pixel style={color}  />
+        return <Pixel color={color} mouseDown={mouseDown}  colorState={colorState}/>
     })
 
     return(
-        <div className="grid-container">
+        <div 
+        onMouseDown={()=>setMouseDown(true)} 
+        onMouseUp={()=>setMouseDown(false)} 
+        className="grid-container">
             {pixels}
         </div>
     )

@@ -1,20 +1,21 @@
 import React,{useState} from "react"
 
-export default function Pixel({style}){
+export default function Pixel({color, mouseDown, colorState}){
 
-    const [currentColor, setCurrentColor] = useState(style)
-
-    function handleColorChange(){
-        setCurrentColor("white")
-    }
+    const [currentColor, setCurrentColor] = useState(color)
     
+    function handleColorChange(){
+        if (mouseDown === true){
+            setCurrentColor(colorState)
+        }
+    }
+
     return(
         <div 
             className="pixel" 
             style= {{background: currentColor}}
-            onMouseDown={handleColorChange}
             onMouseOver={handleColorChange}
-            
+            onMouseDown={()=>setCurrentColor(colorState)}
         >
         </div>
     )
