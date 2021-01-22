@@ -8,22 +8,24 @@ grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(6, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
+height: 710px;
+
 }
 
 .div1 { grid-area: 2 / 2 / 6 / 5; border: 3px solid grey;
-    padding: 50px;
+    padding: 20px;
   margin: 10px;    }
 .div2 { grid-area: 6 / 2 / 7 / 5; border: 3px solid grey;
-    padding: 50px;
+    padding: 20px;
   margin: 10px;    }
 .div3 { grid-area: 1 / 1 / 2 / 6; border: 3px solid grey;
-    padding: 50px;
+    padding: 20px;
   margin: 10px;    }
 .div4 { grid-area: 2 / 5 / 7 / 6; border: 3px solid grey;
-    padding: 50px;
+    padding: 20px;
   margin: 10px;    }
 .div5 { grid-area: 2 / 1 / 7 / 2; border: 3px solid grey;
-    padding: 50px;
+    padding: 20px;
   margin: 10px;    } 
 
   .grid-container {
@@ -52,10 +54,11 @@ grid-row-gap: 0px;
     ". . . . . . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . .";
-}
+    height: 400px;
+    width: 400px;
+    margin: auto;
+
+  }
 
 .pixel{
-  /* border: 1px solid grey; */
-  margin: 1px;
-  padding: 10px; 
 }

@@ -6,9 +6,12 @@ export default function PixelGrid({ colorState }){
 
     const [mouseDown, setMouseDown] = useState(false)
 
+    const [mouseDown, setMouseDown] = useState(false)
+
+
     let defaultGrid = []
 
-    for (let i = 0; i < 399; i++){
+    for (let i = 0; i < 899; i++){
         defaultGrid.push("grey")
     }
 
