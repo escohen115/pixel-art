@@ -6,7 +6,7 @@ export default function PixelGrid({ colorState }){
 
     const [mouseDown, setMouseDown] = useState(false)
 
-    const [mouseDown, setMouseDown] = useState(false)
+    // const [mouseDown, setMouseDown] = useState(false)
 
 
     let defaultGrid = []
