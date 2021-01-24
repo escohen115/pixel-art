@@ -10,6 +10,7 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
 height: 710px;
 
+
 }
 
 .div1 { grid-area: 2 / 2 / 6 / 5; border: 3px solid grey;
@@ -60,5 +61,18 @@ height: 710px;
 
   }
 
-.pixel{
+.toolbarPixel{
+  /* border: 10px white; */
+  height: 15px;
+  width: 100px;
+  margin: auto;
+}
+
+h2{
+  margin: auto;
+  padding: 20px
+}
+
+.save{
+  float:right;
 }

@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 
-export default function Pixel({color, mouseDown, colorState}){
+export default function Pixel({color, mouseDown, colorState, setColorGrid}){
 
     const [currentColor, setCurrentColor] = useState(color)
     
@@ -9,7 +9,7 @@ export default function Pixel({color, mouseDown, colorState}){
             setCurrentColor(colorState)
         }
     }
-
+    
     return(
         <div 
             className="pixel" 
