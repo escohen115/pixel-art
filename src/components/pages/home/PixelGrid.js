@@ -6,8 +6,6 @@ export default function PixelGrid({ colorState }){
 
     const [mouseDown, setMouseDown] = useState(false)
 
-    // const [mouseDown, setMouseDown] = useState(false)
-
 
     let defaultGrid = []
 
@@ -18,7 +16,11 @@ export default function PixelGrid({ colorState }){
     const [colorGrid, setColorGrid] = useState(defaultGrid)
     
     const pixels = colorGrid.map(color => {
-        return <Pixel color={color} mouseDown={mouseDown}  colorState={colorState}/>
+        return <Pixel color={color} 
+        mouseDown={mouseDown}  
+        colorState={colorState} 
+        setColorGrid={setColorGrid} 
+        colorGrid={colorGrid}/>
     })
 
     return(
