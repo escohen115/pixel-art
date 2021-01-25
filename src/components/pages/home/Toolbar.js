@@ -3,8 +3,7 @@ import ColorGrid from './ColorGrid'
 
 export default function Toolbar({ handleColorSelection }){
 
-    const colorPalette = ['black', 'grey', 'white',
-    'purple', 'orange', 'red', 'yellow', 'pink', 'blue', 'green', ]
+    const colorPalette = [ "black", "lightgrey", "white","red", "orange", "yellow","green", "blue", "indigo", "violet" ]
 
     const colorGrid = colorPalette.map(color => {
         return <ColorGrid key={Math.random()} color={color} handleColorSelection={handleColorSelection}/>
@@ -12,9 +11,8 @@ export default function Toolbar({ handleColorSelection }){
     
     return(
         <div className="div5">
-            <div className="colorGrid">
+            <div className="color-selector-container">
                 {colorGrid}
-                <button>reverse</button>
                 
             </div>
         </div>

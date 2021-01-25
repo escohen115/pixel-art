@@ -6,6 +6,8 @@ export default function PixelGrid({ colorState, colorGrid, setColorGrid }){
 
     const [mouseDown, setMouseDown] = useState(false)
 
+    console.log(colorGrid)
+
     const pixels = colorGrid.map((color, index) => {
         return (
         <Pixel color={color} 
@@ -13,7 +15,8 @@ export default function PixelGrid({ colorState, colorGrid, setColorGrid }){
         colorState={colorState} 
         colorGrid={colorGrid}
         setColorGrid={setColorGrid}
-        index={index}/>)
+        index={index}
+        key={index}/>)
     })
 
     return(

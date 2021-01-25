@@ -2,18 +2,13 @@ import React,{useState, useEffect} from "react"
 
 export default function Pixel({color, mouseDown, colorState, colorGrid, setColorGrid, index}){
 
- 
-    const [currentColor, setCurrentColor] = useState(color)
-
     
     function handleColorChange(e){
         if (e.type === 'mousedown'){
-            setCurrentColor(colorState)
             updateGrid()
         }
 
         if (mouseDown === true){
-            setCurrentColor(colorState)
             updateGrid()
         }
     }
@@ -27,7 +22,7 @@ export default function Pixel({color, mouseDown, colorState, colorGrid, setColor
     return(
         <div 
             className="pixel" 
-            style= {{background: currentColor}}
+            style= {{background: color}}
             onMouseOver={handleColorChange}
             onMouseDown={(e)=>handleColorChange(e)}
         >
