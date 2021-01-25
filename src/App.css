@@ -13,19 +13,30 @@ height: 710px;
 
 }
 
-.div1 { grid-area: 2 / 2 / 6 / 5; border: 3px solid grey;
+.div1 { grid-area: 2 / 2 / 6 / 5; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    }
-.div2 { grid-area: 6 / 2 / 7 / 5; border: 3px solid grey;
+.div2 { grid-area: 6 / 2 / 7 / 5; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    }
-.div3 { grid-area: 1 / 1 / 2 / 6; border: 3px solid grey;
-    padding: 20px;
-  margin: 10px;    }
-.div4 { grid-area: 2 / 5 / 7 / 6; border: 3px solid grey;
-    padding: 20px;
-  margin: 10px;    }
-.div5 { grid-area: 2 / 1 / 7 / 2; border: 3px solid grey;
+.div3 { 
+  grid-area: 1 / 1 / 2 / 6; 
+  border: 3px solid grey;
+  padding: 20px;
+  margin: 10px;    
+  
+}
+.div4 { 
+  grid-area: 2 / 5 / 7 / 6; 
+  border: 3px solid grey;
+  padding: 20px;
+  margin: 10px;
+overflow: auto;
+  white-space: nowrap;    }
+.div5 { grid-area: 2 / 1 / 7 / 2; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    } 
 
@@ -75,4 +86,38 @@ h2{
 
 .save{
   float:right;
+}
+
+.saved-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . .";
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    padding: 2px;
+    
+
 }

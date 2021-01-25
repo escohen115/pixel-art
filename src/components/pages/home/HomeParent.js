@@ -6,21 +6,20 @@ import React, { useState } from 'react'
 export default function HomeParent({handleSave, colorGrid, setColorGrid, colorState, setColorState}){
 
 
-
     function handleColorSelection(color) {
         setColorState(color)
         console.log(colorState)
     }
-
     
     return (
         <>
             <CanvasContainer 
-            colorState={colorState} 
-            colorGrid={colorGrid} 
-            setColorGrid={setColorGrid}
-            handleSave={handleSave}
-            setColorState={setColorState}/>
+                colorState={colorState} 
+                colorGrid={colorGrid} 
+                setColorGrid={setColorGrid}
+                handleSave={handleSave}
+                setColorState={setColorState}
+            />
             <CommentsContainer/>
             <Toolbar handleColorSelection={handleColorSelection}/>
         </>

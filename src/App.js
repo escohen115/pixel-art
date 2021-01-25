@@ -7,33 +7,52 @@ import './App.css';
 
 
 function App() {
+  
+  // useEffect(()=>{},[])
 
   let defaultGrid = []
     for (let i = 0; i < 599; i++){
         defaultGrid.push("grey")
     }
-  const [colorGrid, setColorGrid] = useState(defaultGrid)
+
+  const [colorGrid, setColorGrid] = useState([])
   const [colorState, setColorState] = useState('black')
+  const [saved, setSaved] = useState([])
+
+  
+
+  useEffect(()=>{
+    fetch(`http://127.0.0.1:3000/drawings`)
+    .then(response => response.json())
+    .then(data => setColorGrid(data[0].color_array))
+  },[])
+
 
   function handleSave(){
-    let currentPixels = document.getElementsByClassName('pixel')
-    let toBeSaved = []
-    for (let i=0;i<currentPixels.length;i++){
-      toBeSaved.push(currentPixels[i].style.background)
-    }
-    setColorGrid(toBeSaved)
+    setSaved([...saved, colorGrid])
+
   }
 
+  function updateGrid(newGrid) {
+    console.log("yo we here")
+    setColorGrid(newGrid) 
+  }
+ 
   return (
     <>
-      <MainNav/>
-      <PortfolioNav colorGrid={colorGrid } colorState={colorState} setColorGrid={setColorGrid}/> 
-      <HomeParent 
-      handleSave={handleSave}
-      colorGrid={colorGrid}
-      setColorGrid={setColorGrid}
-      colorState={colorState} 
-      setColorState={setColorState}/>
+        <MainNav/>
+        <PortfolioNav 
+          saved={saved} 
+          colorGrid={colorGrid} 
+          updateGrid={updateGrid}
+          setColorGrid={setColorGrid}/>
+          <HomeParent 
+            handleSave={handleSave}
+            colorGrid={colorGrid}
+            setColorGrid={setColorGrid}
+            colorState={colorState} 
+            setColorState={setColorState}/>
+          <ArtworkGrid />
     </>
   )
 }
