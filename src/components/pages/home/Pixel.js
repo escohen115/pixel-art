@@ -1,27 +1,30 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 
-export default function Pixel({color, mouseDown, colorState, colorGrid, setColorGrid}){
+export default function Pixel({color, mouseDown, colorState, colorGrid, setColorGrid, index}){
 
-    const [currentColor, setCurrentColor] = useState(color)
     
     function handleColorChange(e){
         if (e.type === 'mousedown'){
-            setCurrentColor(colorState)
-            setColorGrid([...colorGrid, colorState])
+            updateGrid()
         }
 
         if (mouseDown === true){
-            setCurrentColor(colorState)
-            setColorGrid([...colorGrid, colorState])
+            updateGrid()
         }
 
 
     }
 
+    function updateGrid(){
+        let newColorGrid = [...colorGrid]
+        newColorGrid[index] = colorState
+        setColorGrid(newColorGrid)
+    }
+    
     return(
         <div 
             className="pixel" 
-            style= {{background: currentColor}}
+            style= {{background: color}}
             onMouseOver={handleColorChange}
             onMouseDown={(e)=>handleColorChange(e)}
         >

@@ -7,11 +7,9 @@ export default function ColorGrid({ color, handleColorSelection }){
     }
 
     return (
-        <div 
-            className="toolbarPixel" 
+        <div className="toolbarPixel" 
             style= {{background: color}}
-            onClick={handleColorChange}
-        >
+            onClick={handleColorChange}>
         </div>
     )
 }

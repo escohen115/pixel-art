@@ -10,27 +10,39 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
 height: 710px;
 
+
 }
 
-.div1 { grid-area: 2 / 2 / 6 / 5; border: 3px solid grey;
+.div1 { grid-area: 2 / 2 / 6 / 5; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    }
-.div2 { grid-area: 6 / 2 / 7 / 5; border: 3px solid grey;
+.div2 { grid-area: 6 / 2 / 7 / 5; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    }
-.div3 { grid-area: 1 / 1 / 2 / 6; border: 3px solid grey;
-    padding: 20px;
-  margin: 10px;    }
-.div4 { grid-area: 2 / 5 / 7 / 6; border: 3px solid grey;
-    padding: 20px;
-  margin: 10px;    }
-.div5 { grid-area: 2 / 1 / 7 / 2; border: 3px solid grey;
+.div3 { 
+  grid-area: 1 / 1 / 2 / 6; 
+  border: 3px solid grey;
+  padding: 20px;
+  margin: 10px;    
+  
+}
+.div4 { 
+  grid-area: 2 / 5 / 7 / 6; 
+  border: 3px solid grey;
+  padding: 20px;
+  margin: 10px;
+overflow: auto;
+  white-space: nowrap;    }
+.div5 { grid-area: 2 / 1 / 7 / 2; 
+  border: 3px solid grey;
     padding: 20px;
   margin: 10px;    } 
 
   .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -60,17 +72,83 @@ height: 710px;
 
   }
 
-.pixel{
+  .color-selector-container {
+ display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . .";
 }
 
-
 .toolbarPixel{
+  border: 1px solid white;
   height: 15px;
-  width: 100px;
+  width: 25px;
   margin: auto;
 }
 
+h2{
+  margin: auto;
+  padding: 20px
+}
 
 .save{
   float:right;
 }
+.clear{
+  float:right;
+  
+}
+
+.saved-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . .";
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    padding: 2px;
+    
+
+}
+
+.artwork-container {
+  border: 3px solid grey;
+  grid-area: 2 / 1 / 7 / 5; 
+  padding: 20px;
+  margin: 10px;  
+}
+
+
+
+
