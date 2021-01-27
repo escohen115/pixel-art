@@ -18,26 +18,15 @@ function App() {
   const [colorState, setColorState] = useState('black')
   const [user, setUser] = useState(null)
   const [saved, setSaved] = useState(false)
-
-  useEffect(()=>{
-    if(user){
-      if(user.drawings.length > 0){
-        setColorGrid(user.drawings[0].color_array)
-      } 
-    }},[])
-
+  const [commentsDrawingId, setCommentsDrawingId] = useState(null)
 
   function handleSave(){
-    
     setSaved(!saved)
-    console.log(user)
     if (user) {
-      console.log(colorGrid)
       let drawing = {
-        color_array: colorGrid,
-        user_id: user.id
+          color_array: colorGrid,
+          user_id: user.id
       }
-
      let confObj = {
             method: 'POST',
             headers: {
@@ -49,8 +38,6 @@ function App() {
           .then(response=>response.json())
           .then(data=>console.log(data))
     }
-    // setSaved([...saved, colorGrid])
-
   }
 
 
@@ -61,10 +48,11 @@ function App() {
   function handleClear(){
     setColorGrid(defaultGrid)
   }
+
  
   return (
     <>
-     <MainNav user={user}/>
+     <MainNav user={user} setUser={setUser} saved={saved} setSaved={setSaved}/>
       <Switch> 
         <Route exact path='/'>
           <HomeParent 
@@ -74,16 +62,20 @@ function App() {
             colorState={colorState} 
             setColorState={setColorState}
             handleClear={handleClear}
+            commentsDrawingId={commentsDrawingId}
           />
-          <PortfolioNav 
+        <PortfolioNav 
             saved={saved} 
+            setSaved={setSaved}
             user = {user}
             colorGrid={colorGrid} 
             updateGrid={updateGrid}
-            setColorGrid={setColorGrid}/>
+            setColorGrid={setColorGrid}
+            setCommentsDrawingId={setCommentsDrawingId}
+            />
         </Route>
 
-          <Route path='/login'> 
+        <Route path='/login'> 
           <LogIn user={user} setUser={setUser}/>
         </Route>
 
@@ -92,9 +84,10 @@ function App() {
         </Route>
 
         <Route path='/drawings'>
-          <ArtworkGrid handleSave={handleSave}/>
+          <ArtworkGrid saved={saved} setSaved={setSaved} user={user}/>
             <PortfolioNav 
             saved={saved} 
+            setSaved={setSaved}
             colorGrid={colorGrid} 
             updateGrid={updateGrid}
             setColorGrid={setColorGrid}/>

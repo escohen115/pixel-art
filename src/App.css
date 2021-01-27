@@ -183,11 +183,11 @@ h2{
   margin: auto;
   float: center;
   display: flex;
+  height: 70px;
 }
 
 .signup{
 text-align: center;
-  
 }
 
 
@@ -247,4 +247,13 @@ text-align: center;
 
 a:hover, a:active {
   background-color: #dd3f33;
+}
+
+.delete{
+  
+  margin-left: 46px;
+  width: 100px;
+ border: 3px solid green;
+
+
 }

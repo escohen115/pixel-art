@@ -2,7 +2,7 @@ import Pixel from './Pixel'
 import React, { useState } from "react"
 
 
-export default function SavedGrid({ grid, updateGrid}){
+export default function SavedGrid({ grid, updateGrid, handleDelete, id, setCommentsDrawingId}){
 
 
     const pixels = grid.map(color => {
@@ -17,14 +17,19 @@ export default function SavedGrid({ grid, updateGrid}){
 
     function handleUpdate(){
         updateGrid(grid)
+        setCommentsDrawingId(id)
     }
 
     return(
-        <div 
-            className="saved-grid-container"
-            onClick={handleUpdate}>
-            {pixels}
+        <div>
+            <div 
+                className="saved-grid-container"
+                onClick={handleUpdate}>
+                {pixels}
+            </div>
+            <button className="delete" onClick={()=>handleDelete(id)}>🗑️</button>
         </div>
+        
     )
 
 }

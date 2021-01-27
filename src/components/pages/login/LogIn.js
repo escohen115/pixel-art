@@ -1,7 +1,9 @@
 import React,{useEffect, useState} from "react"
+import { useHistory } from "react-router-dom";
 
 
 export default function LogIn ({user, setUser}){
+    let history = useHistory()
 
     const [formState, setFormState] = useState({})
 
@@ -24,11 +26,8 @@ export default function LogIn ({user, setUser}){
         fetch('http://localhost:3000/users/login', confObj)
         .then(response=>response.json())
         .then(data=>{
-            // let foundUser = data.find((user)=>{
-            //     return(user.username===formState.username)
-            // })
-            setUser(data)
-            console.log(data)
+            setUser(data)         
+            history.push('/')
 
         })
 
