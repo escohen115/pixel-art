@@ -1,15 +1,12 @@
 import CanvasContainer from "./CanvasContainer"
 import CommentsContainer from "./CommentsContainer"
 import Toolbar from "./Toolbar"
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function HomeParent({handleSave, colorGrid, setColorGrid, colorState, setColorState, handleClear}){
 
-    console.log(colorGrid)
-
     function handleColorSelection(color) {
         setColorState(color)
-        console.log(colorState)
     }
     
     return (
@@ -21,11 +18,9 @@ export default function HomeParent({handleSave, colorGrid, setColorGrid, colorSt
                 handleSave={handleSave}
                 setColorState={setColorState}
                 handleClear={handleClear}
-                
             />
             <CommentsContainer/>
             <Toolbar handleColorSelection={handleColorSelection}/>
         </>
-
     )
 }

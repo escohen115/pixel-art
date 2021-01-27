@@ -1,7 +1,7 @@
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
 
 
-export default function SignUp ({user, setUser}){
+export default function LogIn ({user, setUser}){
 
     const [formState, setFormState] = useState({})
 
@@ -21,13 +21,17 @@ export default function SignUp ({user, setUser}){
             body: JSON.stringify(formState),
         }
 
-        fetch('http://localhost:3000/users', confObj)
+        fetch('http://localhost:3000/users/login', confObj)
         .then(response=>response.json())
         .then(data=>{
+            // let foundUser = data.find((user)=>{
+            //     return(user.username===formState.username)
+            // })
             setUser(data)
             console.log(data)
+
         })
-    
+
     }
 
     return (

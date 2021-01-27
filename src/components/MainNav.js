@@ -1,22 +1,18 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import Logo from "./pages/logo.png" ;
 
-const linkStyles = {
-  width: "100px",
-  padding: "12px",
-  margin: "0 6px 6px",
-  background: "blue",
-  textDecoration: "none",
-  color: "white",
-};
 
-export default function MainNav(){
+export default function MainNav({user}){
     return(
         <div className="div3">
-            <NavLink to="/" style={linkStyles}>Home</NavLink> 
-            <NavLink to="/login" style={linkStyles}>Login</NavLink>
-            <NavLink to="/signup" style={linkStyles}>Sign Up</NavLink> 
-            <NavLink to="/drawings"style={linkStyles}>See All Drawings</NavLink>  
+            <div className="navlinks">
+                <NavLink to="/" className="navLinks">Home</NavLink> 
+                <NavLink to="/login" className="navLinks">Login</NavLink>
+                {user? null:<NavLink to="/signup" className="navLinks">Sign Up</NavLink>}
+                <NavLink to="/drawings"className="navLinks">See All Drawings</NavLink>  
+                <img src={Logo} className="logo"></img>
+            </div>
         </div>
     )
 }

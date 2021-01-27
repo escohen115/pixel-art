@@ -1,5 +1,7 @@
 body{
   background:black;
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: white;
 }
 
 #root{
@@ -13,28 +15,32 @@ height: 710px;
 
 }
 
-.div1 { grid-area: 2 / 2 / 6 / 5; 
+.div1 { 
+  grid-area: 2 / 2 / 6 / 5; 
   border: 3px solid grey;
-    padding: 20px;
+  padding: 20px;
   margin: 10px;    }
-.div2 { grid-area: 6 / 2 / 7 / 5; 
+.div2 { 
+  grid-area: 6 / 2 / 7 / 5; 
   border: 3px solid grey;
-    padding: 20px;
-  margin: 10px;    }
+  padding: 20px;
+  margin: 10px;   
+  padding-right: 40px; 
+}
 .div3 { 
   grid-area: 1 / 1 / 2 / 6; 
   border: 3px solid grey;
   padding: 20px;
   margin: 10px;    
-  
 }
 .div4 { 
   grid-area: 2 / 5 / 7 / 6; 
   border: 3px solid grey;
   padding: 20px;
   margin: 10px;
-overflow: auto;
+  overflow: auto;
   white-space: nowrap;    }
+
 .div5 { grid-area: 2 / 1 / 7 / 2; 
   border: 3px solid grey;
     padding: 20px;
@@ -73,7 +79,7 @@ overflow: auto;
   }
 
   .color-selector-container {
- display: grid;
+ /* display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -85,14 +91,17 @@ overflow: auto;
     ". . . . . . . ."
     ". . . . . . . ."
     ". . . . . . . ."
-    ". . . . . . . .";
+    ". . . . . . . ."; */
+    /* display: table; */
 }
 
 .toolbarPixel{
   border: 1px solid white;
-  height: 15px;
-  width: 25px;
-  margin: auto;
+  height: 40px;
+  width: 40px;
+  /* margin: auto; */
+  /* display: flex; */
+  float: right;
 }
 
 h2{
@@ -138,8 +147,6 @@ h2{
     width: 100px;
     margin: auto;
     padding: 2px;
-    
-
 }
 
 .artwork-container {
@@ -147,8 +154,97 @@ h2{
   grid-area: 2 / 1 / 7 / 5; 
   padding: 20px;
   margin: 10px;  
+  overflow: auto;
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;  
+}
+
+
+.form {
+  border: 3px solid grey;
+  grid-area: 3 / 2 / 6 / 5; 
+  padding: 20px;
+  margin: 10px;  
+}
+
+
+.logo{
+  margin: auto;
+  height: 70px;
+  width: 300px;
+  float: right;
+}
+
+.navlinks{
+  margin: auto;
+  float: center;
+  display: flex;
+}
+
+.signup{
+text-align: center;
+  
+}
+
+
+.artwork{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . .";
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
 }
 
 
 
 
+/* .navLinks {
+  width: "100px";
+  padding: "12px";
+  margin: "0 6px 6px";
+  background: "blue";
+  color: "white";
+  
+  
+}; */
+
+.navLinks{
+  background-color: #f44336;
+  color: white;
+  padding: 22px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #dd3f33;
+}

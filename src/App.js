@@ -5,64 +5,100 @@ import PortfolioNav from './components/PortfolioNav'
 import HomeParent from './components/pages/home/HomeParent'
 import ArtworkGrid from './components/pages/artIndex/ArtworkGrid'
 import SignUp from './components/pages/signup/SignUp'
+import LogIn from './components/pages/login/LogIn'
 import './App.css';
 
-
-function App() {
-  
-  let defaultGrid = []
-    for (let i = 0; i < 2099; i++){
+ const defaultGrid = []
+    for (let i = 0; i < 600; i++){
         defaultGrid.push("lightgrey")
     }
 
+function App() {
   const [colorGrid, setColorGrid] = useState(defaultGrid)
   const [colorState, setColorState] = useState('black')
-  const [saved, setSaved] = useState([])
+  const [user, setUser] = useState(null)
+  const [saved, setSaved] = useState(false)
 
-  
+  useEffect(()=>{
+    if(user){
+      if(user.drawings.length > 0){
+        setColorGrid(user.drawings[0].color_array)
+      } 
+    }},[])
+
 
   function handleSave(){
-    setSaved([...saved, colorGrid])
+    
+    setSaved(!saved)
+    console.log(user)
+    if (user) {
+      console.log(colorGrid)
+      let drawing = {
+        color_array: colorGrid,
+        user_id: user.id
+      }
+
+     let confObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(drawing),
+        }
+        fetch('http://localhost:3000/drawings', confObj)
+          .then(response=>response.json())
+          .then(data=>console.log(data))
+    }
+    // setSaved([...saved, colorGrid])
+
   }
 
+
   function updateGrid(newGrid) {
-    console.log("yo we here")
     setColorGrid(newGrid)
   }
 
   function handleClear(){
     setColorGrid(defaultGrid)
-    
   }
  
   return (
     <>
-     <MainNav/>
-      <PortfolioNav 
-        saved={saved} 
-        colorGrid={colorGrid} 
-        updateGrid={updateGrid}
-        setColorGrid={setColorGrid}/>
+     <MainNav user={user}/>
       <Switch> 
+        <Route exact path='/'>
+          <HomeParent 
+            handleSave={handleSave}
+            colorGrid={colorGrid}
+            setColorGrid={setColorGrid}
+            colorState={colorState} 
+            setColorState={setColorState}
+            handleClear={handleClear}
+          />
+          <PortfolioNav 
+            saved={saved} 
+            user = {user}
+            colorGrid={colorGrid} 
+            updateGrid={updateGrid}
+            setColorGrid={setColorGrid}/>
+        </Route>
 
-          <Route exact path='/'>
-            <HomeParent 
-              handleSave={handleSave}
-              colorGrid={colorGrid}
-              setColorGrid={setColorGrid}
-              colorState={colorState} 
-              setColorState={setColorState}
-              handleClear={handleClear}
-            />
-          </Route>
+          <Route path='/login'> 
+          <LogIn user={user} setUser={setUser}/>
+        </Route>
 
-          <Route path='/signup'> 
-            <SignUp/>
-          </Route>
+        <Route path='/signup'> 
+          <SignUp user={user} setUser={setUser}/>
+        </Route>
 
-          <Route path='/drawings'>
-            <ArtworkGrid/>
-          </Route>
+        <Route path='/drawings'>
+          <ArtworkGrid handleSave={handleSave}/>
+            <PortfolioNav 
+            saved={saved} 
+            colorGrid={colorGrid} 
+            updateGrid={updateGrid}
+            setColorGrid={setColorGrid}/>
+        </Route>
       </Switch>
     </>
   )

@@ -1,7 +1,7 @@
 
 export default function CommentsContainer(){
     return(
-        <div className="div2">
+        <div className="div5">
 
         </div>
     )

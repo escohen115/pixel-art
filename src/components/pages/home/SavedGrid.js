@@ -2,10 +2,10 @@ import Pixel from './Pixel'
 import React, { useState } from "react"
 
 
-export default function SavedGrid({ savedGrid, setColorGrid, updateGrid}){
+export default function SavedGrid({ grid, updateGrid}){
 
 
-    const pixels = savedGrid.map(color => {
+    const pixels = grid.map(color => {
         return (
         <div 
             className="pixel" 
@@ -16,10 +16,7 @@ export default function SavedGrid({ savedGrid, setColorGrid, updateGrid}){
     })
 
     function handleUpdate(){
-        updateGrid(savedGrid)
-        // setColorGrid(savedGrid)
-        // console.log(savedGrid)
-        // debugger
+        updateGrid(grid)
     }
 
     return(

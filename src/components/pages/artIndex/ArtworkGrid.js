@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Artwork from './Artwork'
 
-export default function ArtworkGrid() {
+export default function ArtworkGrid({ handleSave }) {
 
-    let allDrawings = []
+    const [allDrawings, setAllDrawings] = useState([])
 
-    fetch(`http://127.0.0.1:3000/drawings`)
+    useEffect(()=>{
+        fetch(`http://127.0.0.1:3000/drawings`)
         .then(response => response.json())
         .then(drawings => {
-            console.log(drawings)
-            console.log('hi')
-            let allDrawings = drawings.map(drawing => {
-                return <Artwork key={drawing.id} colorGrid={drawing.color_array}/>
+            const artwork = drawings.map(drawing => {
+                return <Artwork key={drawing.id} colorGrid={drawing.color_array} handleSave={handleSave}/>
             })
+            setAllDrawings(artwork)
         })
-
-    return(
+    },[])
+    
+    return (
         <div className="artwork-container">
             {allDrawings}
         </div>
     )
-
 }
