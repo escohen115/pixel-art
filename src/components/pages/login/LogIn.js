@@ -42,7 +42,7 @@ export default function LogIn ({user, setUser}){
                     username:
                     <input type="text" name="username" onChange={(e)=>handleChange(e)}/>
                 </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Login" className="button"/>
             </form>
         </div>
     )

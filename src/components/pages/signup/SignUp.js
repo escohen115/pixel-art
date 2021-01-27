@@ -24,8 +24,13 @@ export default function SignUp ({user, setUser}){
         fetch('http://localhost:3000/users', confObj)
         .then(response=>response.json())
         .then(data=>{
-            setUser(data)
             console.log(data)
+            if (data.error){
+                alert("Username must be unique")
+            }
+            else{
+                setUser(data)
+            }
         })
     
     }
@@ -39,7 +44,7 @@ export default function SignUp ({user, setUser}){
                     username:
                     <input type="text" name="username" onChange={(e)=>handleChange(e)}/>
                 </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Sign Up" className="button"/>
             </form>
         </div>
     )

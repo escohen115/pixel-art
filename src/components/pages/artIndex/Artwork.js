@@ -40,14 +40,13 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
         return (
             <div>
                 <form id="comment-form" onSubmit={(e)=>handleSubmit(e)}>
-                    <label> Enter a Comment: </label>
                     <textarea
                         value={commentFieldState}
                         onChange={handleChange}
-                        rows={5}
-                        cols={10}
+                        rows={3}
+                        cols={25}
                     />
-                    <button type='submit'> Submit </button>
+                    <button type='submit' className="comment-submission-button"> Submit </button>
                 </form>
             </div> 
         )
@@ -63,8 +62,11 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
         let commentObj = {
             user_id: user.id,
             drawing_id: drawing_id,
+            commenter: user.username,
             description: commentFieldState
         }
+
+        console.log(commentObj)
 
         fetch('http://localhost:3000/comments', {
             method: 'POST',
@@ -75,7 +77,7 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
         })
             .then(r => r.json())
             .then(data => {
-                console.log('yo')
+                console.log(data)
             })
         
         setCommentState(false)
@@ -96,7 +98,7 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
             </div>
 
             {clicked && user ? 
-                <div>
+                <div className="artwork-options">
                     <button onClick={handlePortfolioClick}> ⭐ Add to Portfolio </button>
                     <button onClick={handleCommentClick}> 🖊️ Leave a Comment </button>
                     {commentState ? showCommentForm() : null}

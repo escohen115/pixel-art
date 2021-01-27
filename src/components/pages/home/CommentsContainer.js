@@ -16,12 +16,18 @@ export default function CommentsContainer({commentsDrawingId, colorGrid}){
 
     
     let commentsMapped = comments.map(comment=>{
-        return<div>{comment.description}</div>
+        return(
+            <div>
+                {comment.description}
+                - {comment.commenter}
+            </div>
+        )
     })
     
 
     return(
         <div className="div5">
+            <h3 className="comments">Comments:</h3>
             {commentsMapped}
         </div>
     )

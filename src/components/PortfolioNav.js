@@ -8,19 +8,19 @@ export default function PortfolioNav({colorGrid, saved, setSaved, setColorGrid, 
     
     function handleDelete(id){
         
-        console.log(user)
+        if (window.confirm("Are you sure you'd like to delete this drawing?")){
         
-        let confObj = {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
+            let confObj = {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+            }
+            fetch(`http://localhost:3000/drawings/${id}`, confObj)
+            .then(response=>response.json())
+            .then(data=>{
+                setSaved(!saved)
+                })
+            }
         }
-        fetch(`http://localhost:3000/drawings/${id}`, confObj)
-        .then(response=>response.json())
-        .then(data=>{
-            setSaved(!saved)
-            })
-    }
-    
 
     useEffect(() => {
         if (user){
