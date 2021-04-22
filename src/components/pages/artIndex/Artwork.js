@@ -33,7 +33,6 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
 
     function handleCommentClick() {
         setCommentState(!commentState)
-        console.log(commentState)
     }
 
     function showCommentForm() {
@@ -51,6 +50,7 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
             </div> 
         )
     }
+
 
     function handleChange(e) {
         setCommentFieldState(e.target.value)

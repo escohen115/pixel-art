@@ -41,7 +41,7 @@ export default function SignUp ({user, setUser}){
 
             <form className="signup" onSubmit={(e)=>handleSubmit(e)}>
                 <label>
-                    username:
+                    Username:
                     <input type="text" name="username" onChange={(e)=>handleChange(e)}/>
                 </label>
                     <input type="submit" value="Sign Up" className="button"/>

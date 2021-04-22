@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 import Logo from "./pages/logo.png" ;
 
@@ -6,7 +6,6 @@ import Logo from "./pages/logo.png" ;
 export default function MainNav({user, setUser, saved, setSaved}){
 
     function handleSignOut(){
-        // confirm("Are you sure you'd like to sign out?")
         if(window.confirm("Are you sure you'd like to sign out?")){
             setUser(null)
             setSaved(!saved)
@@ -17,7 +16,7 @@ export default function MainNav({user, setUser, saved, setSaved}){
         <div className="div3">
             <div className="navlinks">
                 <img src={Logo} className="logo" ></img>
-                {user?<NavLink to="/"className="navLinks" onClick={handleSignOut}>Sign Out</NavLink>:null}
+                {user?<NavLink to="/"className="navLinks" onClick={handleSignOut}>Sign Out</NavLink>:null}a
                 <NavLink to="/drawings"className="navLinks">See All Drawings</NavLink>  
                 {user? null:<NavLink to="/signup" className="navLinks" >Sign Up</NavLink>}
                 {user? null:<NavLink to="/login" className="navLinks">Login</NavLink>}

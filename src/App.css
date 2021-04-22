@@ -11,8 +11,6 @@ grid-template-rows: repeat(6, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 height: 710px;
-
-
 }
 
 .div1 { 
@@ -33,6 +31,7 @@ height: 710px;
   /* padding: 20px; */
   margin: 20px;    
 }
+
 .div4 { 
   grid-area: 2 / 5 / 7 / 6; 
   border: 3px solid grey;
@@ -239,7 +238,6 @@ text-align: center;
   text-decoration: none;
   display: inline-block;
   float: right;
-
   margin: auto;
   display: flex;
   /* height: 70px; */
