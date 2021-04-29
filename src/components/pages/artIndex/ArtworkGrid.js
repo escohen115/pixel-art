@@ -5,7 +5,7 @@ export default function ArtworkGrid({ user, saved, setSaved }) {
     const [allDrawings, setAllDrawings] = useState([])
     
     useEffect(()=>{
-        fetch(`http://127.0.0.1:3000/drawings`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}drawings`)
         .then(response => response.json())
         .then(drawings => {
             const artwork = drawings.map(drawing => {
@@ -22,7 +22,7 @@ export default function ArtworkGrid({ user, saved, setSaved }) {
             })
             setAllDrawings(artwork)
         })
-    },[])
+    },[saved, setSaved, user])
     
     return (
         <div className="artwork-container">

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react"
+import React,{useState} from "react"
 import { useHistory } from "react-router-dom";
 
 
@@ -23,7 +23,7 @@ export default function LogIn ({user, setUser}){
             body: JSON.stringify(formState),
         }
 
-        fetch('http://localhost:3000/users/login', confObj)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users/login`, confObj)
         .then(response=>response.json())
         .then(data=>{
             setUser(data)         

@@ -15,7 +15,7 @@ export default function MainNav({user, setUser, saved, setSaved}){
     return(
         <div className="div3">
             <div className="navlinks">
-                <img src={Logo} className="logo" ></img>
+                <img src={Logo} className="logo" alt="logo"></img>
                 {user?<NavLink to="/"className="navLinks" onClick={handleSignOut}>Sign Out</NavLink>:null}a
                 <NavLink to="/drawings"className="navLinks">See All Drawings</NavLink>  
                 {user? null:<NavLink to="/signup" className="navLinks" >Sign Up</NavLink>}

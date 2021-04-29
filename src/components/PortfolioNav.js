@@ -1,30 +1,30 @@
 import SavedGrid from './pages/home/SavedGrid'
 import React, {useEffect, useState} from "react"
+import { useCallback } from 'react'
 
 export default function PortfolioNav({colorGrid, saved, setSaved, setColorGrid, updateGrid, user, setCommentsDrawingId}){
 
     const [savedGrid, setSavedGrid] = useState([])
 
     
-    function handleDelete(id){
-        
+    const handleDelete = useCallback ((id) => {
         if (window.confirm("Are you sure you'd like to delete this drawing?")){
-        
             let confObj = {
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'},
             }
-            fetch(`http://localhost:3000/drawings/${id}`, confObj)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}${id}`, confObj)
             .then(response=>response.json())
             .then(data=>{
                 setSaved(!saved)
                 })
             }
-        }
-
+        },[saved, setSaved])
+        
     useEffect(() => {
+
         if (user){
-            fetch(`http://localhost:3000/users/${user.id}`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}${user.id}`)
                 .then(r=>r.json())
                 .then(data=>{
                     console.log(data)
@@ -48,7 +48,7 @@ export default function PortfolioNav({colorGrid, saved, setSaved, setColorGrid, 
         {
             setSavedGrid([])
         }
-    }, [saved])
+    }, [saved, setCommentsDrawingId, updateGrid, user, handleDelete])
 
 
     return(

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Comment from "./Comment"
 
 export default function CommentsContainer({commentsDrawingId, colorGrid}){
 
@@ -8,11 +7,11 @@ export default function CommentsContainer({commentsDrawingId, colorGrid}){
 
     useEffect(()=>{
         if (commentsDrawingId){
-            fetch(`http://localhost:3000/drawings/${commentsDrawingId}`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}${commentsDrawingId}`)
             .then(response=>response.json())
             .then(data=> setComments(data.comments))
         }
-    },[colorGrid])
+    },[colorGrid, commentsDrawingId])
 
     
     let commentsMapped = comments.map(comment=>{

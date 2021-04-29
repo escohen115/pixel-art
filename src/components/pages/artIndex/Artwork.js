@@ -25,7 +25,7 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
                 },
                 body: JSON.stringify(drawing),
             }
-            fetch('http://localhost:3000/drawings', confObj)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}drawings`, confObj)
             .then(response=>response.json())
             .then(data=>console.log(data))
         }
@@ -68,7 +68,7 @@ export default function Artwork({ user, drawing_id, colorGrid, saved, setSaved }
 
         console.log(commentObj)
 
-        fetch('http://localhost:3000/comments', {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

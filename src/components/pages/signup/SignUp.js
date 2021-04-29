@@ -21,7 +21,7 @@ export default function SignUp ({user, setUser}){
             body: JSON.stringify(formState),
         }
 
-        fetch('http://localhost:3000/users', confObj)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users`, confObj)
         .then(response=>response.json())
         .then(data=>{
             console.log(data)

@@ -1,5 +1,4 @@
-import Pixel from './Pixel'
-import React, { useState } from "react"
+import React from "react"
 
 
 export default function SavedGrid({ grid, updateGrid, handleDelete, id, setCommentsDrawingId}){

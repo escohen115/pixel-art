@@ -1,4 +1,4 @@
-import React, { useState } from 'react' 
+import React from 'react' 
 import ColorGrid from './ColorGrid'
 
 export default function Toolbar({ handleColorSelection }){

@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react"
+import React from "react"
 
 export default function Pixel({color, mouseDown, colorState, colorGrid, setColorGrid, index}){
 
