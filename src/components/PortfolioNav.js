@@ -13,7 +13,7 @@ export default function PortfolioNav({colorGrid, saved, setSaved, setColorGrid, 
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'},
             }
-            fetch(`${process.env.REACT_APP_API_BASE_URL}${id}`, confObj)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}users/${id}`, confObj)
             .then(response=>response.json())
             .then(data=>{
                 setSaved(!saved)
