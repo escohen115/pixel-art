@@ -7,7 +7,7 @@ export default function CommentsContainer({commentsDrawingId, colorGrid}){
 
     useEffect(()=>{
         if (commentsDrawingId){
-            fetch(`${process.env.REACT_APP_API_BASE_URL}${commentsDrawingId}`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}drawings/${commentsDrawingId}`)
             .then(response=>response.json())
             .then(data=> setComments(data.comments))
         }
