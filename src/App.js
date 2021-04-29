@@ -34,7 +34,7 @@ function App() {
             },
             body: JSON.stringify(drawing),
         }
-        fetch(`${process.env.REACT_APP_API_BASE_URL}`, confObj)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}drawings`, confObj)
           .then(response=>response.json())
           .then(data=>console.log(data))
     }
