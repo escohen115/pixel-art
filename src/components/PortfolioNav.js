@@ -24,7 +24,7 @@ export default function PortfolioNav({colorGrid, saved, setSaved, setColorGrid, 
     useEffect(() => {
 
         if (user){
-            fetch(`${process.env.REACT_APP_API_BASE_URL}${user.id}`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}users/${user.id}`)
                 .then(r=>r.json())
                 .then(data=>{
                     console.log(data)
